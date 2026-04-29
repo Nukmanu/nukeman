@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EWS Dashboard | Real-Time Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><i class="fas fa-satellite-dish"></i> EWS-MODERN</div>
+    </nav>
+
+    <header class="header-section">
+        <h1>Early Warning System</h1>
+        <p>Monitoring parameter lingkungan secara real-time melalui protokol MQTT.</p>
+        
+        <div class="status-container">
+            <div class="status-pill">
+                <span class="dot" id="status-dot"></span> 
+                <span id="status-text">Menghubungkan...</span>
+            </div>
+            <div class="status-pill">
+                <i class="far fa-clock" style="margin-right: 8px; color: #3b82f6;"></i>
+                <strong id="clock">00:00:00</strong>
+            </div>
+            <button id="download-csv" class="btn-download-header">
+                <i class="fas fa-file-csv"></i> Unduh Log CSV
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="grid-dashboard">
+            <div class="card" id="card-temp">
+                <div class="card-icon temp"><i class="fas fa-thermometer-half"></i></div>
+                <h3>Suhu Ruangan</h3>
+                <div class="value" id="temp-val">--</div>
+                <div class="status-label">Celcius</div>
+            </div>
+
+            <div class="card" id="card-pres">
+                <div class="card-icon water"><i class="fas fa-compress-arrows-alt"></i></div>
+                <h3>Tekanan Udara</h3>
+                <div class="value" id="pres-val">--</div>
+                <div class="status-label">hPa</div>
+            </div>
+
+            <div class="card" id="card-gas">
+                <div class="card-icon rain"><i class="fas fa-biohazard"></i></div>
+                <h3>Kadar Gas</h3>
+                <div class="value" id="gas-val">--</div>
+                <div class="status-label" id="gas-status">Aman</div>
+            </div>
+        </div>
+
+        <section class="history-section">
+            <h2><i class="fas fa-history"></i> Riwayat Aktivitas & Waktu Data</h2>
+            <div id="logs" class="log-container">
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Project EWS Modern | Berbasis ESP32 & AvishaMQTT</p>
+        <p class="made-by">MADE BY NUKE & FRIENDS</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

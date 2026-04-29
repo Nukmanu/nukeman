@@ -1,0 +1,104 @@
+:root {
+    --primary: #0f172a;
+    --accent: #3b82f6;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --bg-body: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --radius-lg: 24px;
+    --radius-md: 12px;
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+body { background-color: var(--bg-body); color: var(--text-main); }
+
+nav {
+    background: white; padding: 1.2rem 8%; display: flex;
+    justify-content: space-between; align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
+}
+
+.logo { font-weight: 800; font-size: 1.5rem; color: var(--primary); }
+.logo i { color: var(--accent); margin-right: 8px; }
+
+.header-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white; padding: 4rem 8% 7rem; text-align: center;
+}
+
+.header-section h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -1px; }
+
+.status-container { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 2rem; }
+
+.status-pill {
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+    padding: 0.6rem 1.2rem; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex; align-items: center; font-size: 0.85rem; font-weight: 600;
+}
+
+.dot { height: 10px; width: 10px; border-radius: 50%; margin-right: 10px; transition: 0.3s; }
+.dot.online { background: var(--success); box-shadow: 0 0 12px var(--success); }
+.dot.offline { background: var(--danger); box-shadow: 0 0 12px var(--danger); }
+
+.btn-download-header {
+    background-color: var(--success); color: white; border: none;
+    padding: 0.6rem 1.2rem; border-radius: 50px; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.3s;
+}
+
+.btn-download-header:hover { transform: translateY(-2px); background-color: #16a34a; }
+
+.container { max-width: 1200px; margin: -4rem auto 4rem; padding: 0 24px; }
+
+.grid-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+
+.card {
+    background: var(--card-bg); padding: 2rem; border-radius: var(--radius-lg);
+    box-shadow: var(--shadow); transition: 0.3s; border: 1px solid rgba(255,255,255,0.8);
+}
+
+.card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+
+.card-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin-bottom: 1.5rem;
+}
+
+.temp { background: #fee2e2; color: #ef4444; }
+.water { background: #e0f2fe; color: #0ea5e9; }
+.rain { background: #dcfce7; color: #22c55e; }
+
+.card .value { font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; }
+
+.status-label { font-size: 0.85rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; background: #f8fafc; }
+
+.warning-border { border: 2px solid var(--danger) !important; animation: pulse-danger 2s infinite; }
+
+@keyframes pulse-danger {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.history-section { margin-top: 3rem; background: white; padding: 2.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+
+.log-container { max-height: 350px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+
+.log-item {
+    background: #f8fafc; padding: 1rem; border-radius: var(--radius-md);
+    display: flex; justify-content: space-between; border-left: 4px solid var(--accent);
+}
+
+.log-item.danger-log { border-left-color: var(--danger); background: #fff5f5; }
+
+footer { text-align: center; padding: 4rem 2rem; color: var(--text-muted); }
+
+.made-by {
+    margin-top: 10px; font-weight: 800; color: var(--accent);
+    letter-spacing: 2px; font-size: 0.8rem;
+}
